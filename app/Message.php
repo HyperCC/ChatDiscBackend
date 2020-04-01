@@ -1,4 +1,5 @@
 <?php
+
 /**
  *  MIT License
  *
@@ -27,6 +28,11 @@ class Message extends Model
     protected $primaryKey = "id";
     protected $fillable = array('id','text','created','latitude','longitude','error');
 
+    /**
+     * The relationship of a message has only one user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function user(){
         return $this->belongsTo(User::class);
     }
