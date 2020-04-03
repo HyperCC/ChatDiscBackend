@@ -1,5 +1,4 @@
 <?php
-
 /**
  *  MIT License
  *
@@ -15,56 +14,35 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+
+use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class User
+ * Class Conversation
  *
  * @package App
  */
-class User extends Authenticatable
+class Conversation extends Model
 {
-    use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'id', 'email', 'password',
-    ];
+    protected $table = "messages";
+    protected $primaryKey = "id_conv";
+    protected $fillable = array('id_conv','id_frst_user','id_scnd_user');
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-
-    /**
-     * A user's relationship has many messages.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function messages(){
-        return $this->hasMany(Message::class);
+    public function frst_user(){
+        return $this->hasOne(User::class);
     }
 
-    public function conversations(){
-        return $this->hasMany(Conversation::class);
+    public function scnd_user(){
+        return $this->hasOne(User::class);
+    }
+
+    /**
+     * The relationship with the 2 users, 2 users have one Conversation.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }

@@ -25,8 +25,10 @@ use Illuminate\Database\Eloquent\Model;
 class Message extends Model
 {
     protected $table = "messages";
-    protected $primaryKey = "id";
-    protected $fillable = array('id','text','created','latitude','longitude','error');
+    protected $primaryKey = "id_message";
+    protected $fillable = array('id_message', 'id_user', 'text','created','latitude','longitude','error');
+
+
 
     /**
      * The relationship of a message has only one user.
