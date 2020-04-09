@@ -10,8 +10,7 @@ This repository is exclusively dedicated to working with [ChatDisc](https://gith
                                                                  
 ## RelationalModel
 The Relational Model
-![relacionalModel](img\relational_model.png)
-
+![relacionalModel](./img/relational_model.png)
 
 
 ## Technologies
