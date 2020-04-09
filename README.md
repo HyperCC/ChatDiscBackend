@@ -6,7 +6,13 @@ API Rest  -  Chat  -  Laravel
 
 ##Link-Up
 This repository is exclusively dedicated to working with [ChatDisc](https://github.com/CharlieCondorcet/ChatDisc)    
+                
                                                                  
+## RelationalModel
+The Relational Model
+![relacionalModel](img\relational_model.png)
+
+
 
 ## Technologies
 - Laravel<br>
